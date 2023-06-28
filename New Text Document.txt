@@ -2,13 +2,12 @@
 <html>
 
 <head>
-  <title>OSINT Tool - Email Lookup</title>
+  <title>OSINT Tool</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/navigation.css">
 </head>
 
 <body>
-
   <div class="navbar">
     <ul>
       <li><a href="about-us.html">About Us </a></li>
@@ -21,33 +20,16 @@
     <img src="india-flag.png" alt="Center Image" />
   </div>
 
-  <div class="container">
-    <h1>EMAIL LOOKUP</h1>
-    <div class="input-group">
-      <label for="target">Target:</label>
-      <input type="text" id="target" placeholder="Enter target information">
-    </div>
+  <nav>
+    <ul class="nav-ul">
+      <li><a href="phone-number-lookup.html">Phone-Number</a></li>
+      <li><a href="username-lookup.html">User-Name</a></li>
+      <li><a href="website-lookup.html">Website</a></li>
+      <li><a href="email-lookup.html">Email</a></li>
+      <li><a href="ip-lookup.html">IP-Address</a></li>
+    </ul>
+  </nav>
 
-    <div class="input-group">
-      <button onclick="search()">Search</button>
-    </div>
-
-    <div class="input-group">
-      <label for="tool">Which lookup tool do you want to use</label>
-      <select id="tool">
-        <option value="tool1">Sherlock</option>
-        <option value="tool2">Tool 2</option>
-        <option value="tool3">Tool 3</option>
-        <option value="tool4">Tool 4</option>
-      </select>
-    </div>
-    
-    <div id="results">
-      <h2>Results:</h2>
-      <img id="loading-image" src="loading.gif" alt="Loading..." style="display: none;">
-      <pre id="output"></pre>
-    </div>
-  </div>
   <div class="flag-container"></div>
   <h2>NOTE:</h2>
   <p>*OSINT provides a way to collect and analyze publicly available data, which can then be used to make informed
@@ -58,21 +40,10 @@
     tools.OSINT, short for open-source intelligence, is a process designed to gather information from public sources.
     These sources may be government databases, websites, or brochures.*</p>
   </div>
+
   <div class="footer">
     With love, from Hacker4Help!
   </div>
-  <script>
-    function search() {
-      var target = document.getElementById('target').value;
-
-      // Perform OSINT search using target information
-
-      // Display the results
-      var output = document.getElementById('output');
-      output.textContent = "Results for: " + target;
-    }
-  </script>
-  <script src="js/script.js"></script>
 </body>
 
 </html>
