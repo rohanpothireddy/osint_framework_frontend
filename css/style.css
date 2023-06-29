@@ -128,9 +128,19 @@ body {
   .footer {
     margin-top: 15px;
     background-color: black;
-    color: white;
+    color: #d2b48c;
     padding: 20px;
     text-align: center;
+    font-size: 12px;
+    margin-bottom: -2px;
+  }
+  .footera {
+    margin-top: 0px;
+    background-color: black;
+    color: #d2b48c;
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
   }
   
   select {
