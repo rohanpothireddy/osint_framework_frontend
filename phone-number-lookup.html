@@ -30,20 +30,25 @@
       <label for="target">Target:</label>
       <input type="text" id="target" placeholder="Enter target information">
     </div>
-
+    
     <div class="input-group">
-      <button onclick="search()">Search</button>
+      <label for="tool">Which lookup tool do you want to use?</label>
+      <select id="tool">
+        ]
+        <option value="tool4">Select Tool</option>
+        <option value="tool1"></option>
+        <option value="tool2"></option>
+        <option value="tool3"></option>
+      </select>
+    </div>
+
+    <div class="hint-text">
+      <p id="hint"></p>
     </div>
 
 
     <div class="input-group">
-      <label for="tool">Which lookup tool do you want to use</label>
-      <select id="tool">
-        <option value="tool1">Sherlock</option>
-        <option value="tool2">Tool 2</option>
-        <option value="tool3">Tool 3</option>
-        <option value="tool4">Tool 4</option>
-      </select>
+      <button onclick="search()">Search</button>
     </div>
 
     
@@ -63,14 +68,33 @@ Feedback or new tool suggestions are extremely welcome! Please feel free to reac
   </div>
   <script>
     function search() {
-      var target = document.getElementById('target').value;
+      var target = document.getElementById("target").value;
 
       // Perform OSINT search using target information
 
       // Display the results
-      var output = document.getElementById('output');
+      var output = document.getElementById("output");
       output.textContent = "Results for: " + target;
     }
+
+    // Function to update the hint text based on the selected tool
+    document.getElementById("tool").addEventListener("change", function () {
+      var hint = document.getElementById("hint");
+      var selectedTool = this.value;
+
+      if (selectedTool === "tool1") {
+        hint.innerHTML =
+          "<strong>Hint :</strong> Nmap utilizes various scanning techniques, like TCP, UCP, etc, to gather comprehensive information about the network infrastructure.";
+      } else if (selectedTool === "tool2") {
+        hint.innerHTML =
+          "<strong>Hint :</strong> It is a network diagnostic tool used to determine the round-time trip (RTT) between a device and a specified IP address or hostname, helping to assess network connectivity and troubleshoot potential issues. It is also used to check if the server is still active or not.";
+      } else if (selectedTool === "tool3") {
+        hint.innerHTML =
+          "<strong>Hint :</strong> You will get results on IP addresses for the network hops between your computer and the target.  You can use the results to reveal the presence of proxy servers or other intermediate devices that are used to hide the actual location of a target.";
+      } else {
+        hint.innerHTML = ""; // Clear the hint if no tool is selected
+      }
+    });
   </script>
   <script src="js/script.js"></script>
 </body>

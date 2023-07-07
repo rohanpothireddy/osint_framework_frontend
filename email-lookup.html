@@ -31,20 +31,24 @@
       <input type="text" id="target" placeholder="Enter target information">
     </div>
 
-    <div class="input-group">
-      <button onclick="search()">Search</button>
-    </div>
+  
 
     <div class="input-group">
       <label for="tool">Which lookup tool do you want to use</label>
       <select id="tool">
-        <option value="tool1">Sherlock</option>
-        <option value="tool2">Tool 2</option>
-        <option value="tool3">Tool 3</option>
-        <option value="tool4">Tool 4</option>
+        <option value="tool1">Select Tool</option>
+        <option value="tool2">Harvestor</option>
+        <option value="tool3">Mosint</option>
       </select>
     </div>
-    
+    <div class="hint-text">
+      <p id="hint"></p>
+    </div>
+
+    <div class="input-group">
+      <button onclick="search()">Search</button>
+    </div>
+
     <div id="results">
       <h2>Results:</h2>
       <img id="loading-image" src="loading.gif" alt="Loading..." style="display: none;">
@@ -61,16 +65,35 @@ For Update Notifications, Suggestions, Comments, Feedback
 Feedback or new tool suggestions are extremely welcome! Please feel free to reach out on info@hacker4help.com
   </div>
   <script>
-    function search() {
-      var target = document.getElementById('target').value;
+      function search() {
+        var target = document.getElementById("target").value;
 
-      // Perform OSINT search using target information
+        // Perform OSINT search using target information
 
-      // Display the results
-      var output = document.getElementById('output');
-      output.textContent = "Results for: " + target;
-    }
-  </script>
+        // Display the results
+        var output = document.getElementById("output");
+        output.textContent = "Results for: " + target;
+      }
+
+      // Function to update the hint text based on the selected tool
+      document.getElementById("tool").addEventListener("change", function () {
+        var hint = document.getElementById("hint");
+        var selectedTool = this.value;
+
+        if (selectedTool === "tool1") {
+          hint.innerHTML =
+            "<strong>Hint :</strong> Select the tool you want to use";
+        } else if (selectedTool === "tool2") {
+          hint.innerHTML =
+            "<strong>Hint :</strong>  It searches all the different APIs included in the tool like Hunter, Github, Brave, Google, Bing and many more for the specific email domain that we enter. Please make sure to wait for some time for the results to be displayed. ";
+        } else if (selectedTool === "tool3") {
+          hint.innerHTML =
+            "<strong>Hint :</strong> This tool gives us the IP address, NS, MX, TXT record of the given target email address. It uses various APIs like Hunter, Emailrep, IntelX, psmdb and breach directory.  ";
+        }else {
+          hint.innerHTML = ""; // Clear the hint if no tool is selected
+        }
+      });
+    </script>
   <script src="js/script.js"></script>
 </body>
 

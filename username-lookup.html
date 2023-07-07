@@ -32,19 +32,22 @@
     </div>
 
     <div class="input-group">
+      <label for="tool">Which lookup tool do you want to use</label>
+      <select id="tool">
+        <option value="tool1">Select Tool</option>
+        <option value="tool2">Sherlock</option>
+      </select>
+    </div>
+    <div class="hint-text">
+      <p id="hint"></p>
+    </div>
+
+    <div class="input-group">
       <button onclick="search()">Search</button>
     </div>
 
 
-    <div class="input-group">
-      <label for="tool">Which lookup tool do you want to use</label>
-      <select id="tool">
-        <option value="tool1">Sherlock</option>
-        <option value="tool2">Tool 2</option>
-        <option value="tool3">Tool 3</option>
-        <option value="tool4">Tool 4</option>
-      </select>
-    </div>
+    
 
     
     <div id="results">
@@ -63,14 +66,30 @@ Feedback or new tool suggestions are extremely welcome! Please feel free to reac
   </div>
   <script>
     function search() {
-      var target = document.getElementById('target').value;
+      var target = document.getElementById("target").value;
 
       // Perform OSINT search using target information
 
       // Display the results
-      var output = document.getElementById('output');
+      var output = document.getElementById("output");
       output.textContent = "Results for: " + target;
     }
+
+    // Function to update the hint text based on the selected tool
+    document.getElementById("tool").addEventListener("change", function () {
+      var hint = document.getElementById("hint");
+      var selectedTool = this.value;
+
+      if (selectedTool === "tool1") {
+        hint.innerHTML =
+          "<strong>Hint :</strong> Select the tool you want to use.";
+      } else if (selectedTool === "tool2") {
+        hint.innerHTML =
+          "<strong>Hint :</strong> You can get info about a username available on different websites through this tool. Please make sure you wait for all the results. There might also possibly be some false positives in the results. So, make sure you check all the results produced because some of the results might be genuine and useful.";
+      } else {
+        hint.innerHTML = ""; // Clear the hint if no tool is selected
+      }
+    });
   </script>
   <script src="js/script.js"></script>
 </body>
